@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+redis
+langdetect
+websockets
+gtts
+openai
