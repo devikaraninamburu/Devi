@@ -1,16 +1,11 @@
 from fastapi import FastAPI
-from scheduler.appointment_engine import book_appointment, cancel_appointment
+import uvicorn
 
 app = FastAPI()
 
 @app.get("/")
-def health():
-    return {"status": "Voice AI Agent Running"}
+def home():
+    return {"message": "Voice AI Agent Running"}
 
-@app.post("/book")
-def book(data: dict):
-    return book_appointment(data)
-
-@app.post("/cancel")
-def cancel(data: dict):
-    return cancel_appointment(data)
+if __name__ == "__main__":
+    uvicorn.run("backend.main:app", host="0.0.0.0", port=10000)
